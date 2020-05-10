@@ -105,7 +105,7 @@ class IntrospectiveRationaleModel(BaseTextModel, nn.Module):
         Output:
             z with dimensions (num_rows, length)
         """
-        z_prob__ = z_prob_.view(-1, 2)  # dimensions (num_rows * length, 2)
+        z_prob__ = z_prob_.reshape(-1, 2)  # dimensions (num_rows * length, 2)
 
         # sample actions
         sampler = torch.distributions.Categorical(z_prob__)
